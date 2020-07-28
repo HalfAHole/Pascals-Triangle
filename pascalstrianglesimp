@@ -1,0 +1,22 @@
+#include <conio.h>
+#include <stdio.h>
+int main(void) {
+long unsigned int i=1, j=0, x=23, y=1, limit=23, ari[32][32];
+printf("Pascal's triangle");_textcolor(15);
+for (i=0; i<=limit; i++) {for (j=0; j<=limit; j++) {ari[i][j]=0;}}
+for (i=0; i<=limit; i++) {ari[i][1]=1;}
+ari[1][1]=1; _gotoxy(x,y); printf("%2lu", ari[1][1]); // ari[1][0]=1;
+for (i=1; i<=limit; i++) {
+for (j=1; j<=limit; j++) {ari[i][j]=ari[i-1][j-1]+ari[i-1][j];}}
+
+for (i=1; i<=limit; i++) {x--; y++; _gotoxy(x,y);
+for (j=1; j<=limit; j++) { if (ari[i][j]==0) {break;} 
+	//		if ((ari[i][j]==ari[i][j-1]) || (ari[i][j]==ari[i][j-2])) {ari[i][j]=0;} // half pyramid
+	//		if (ari[i][j]==1 && j>1) {break;} 									// Mercenne sums
+			if (ari[i][2]%2==0) {_textcolor(1);}
+			if (ari[i][j]%13==0) {_textcolor(4);} printf("%2lu ", ari[i][j]);_textcolor(15);}}
+printf("1"); 
+
+printf("\n\n");
+x=getchar();
+return (0);}
