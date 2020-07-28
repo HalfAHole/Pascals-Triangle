@@ -1,0 +1,21 @@
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+long unsigned int i, j, x=67, y=1, limit=132, ari[133][133];
+printf("Pascal's triangle");_textcolor(6);
+for (i=0; i<=limit; i++) {for (j=0; j<=limit; j++) {ari[i][j]=0;}}
+for (j=0; j<=limit; j++) {ari[j][1]=1;}
+ari[1][1]=1; _gotoxy(x,y); printf("%c", 219);
+_gotoxy(1,4); _textcolor(15); printf("Key:\n");
+			  _textcolor(1);  printf("Divisable by 3\n"); _textcolor(6);
+for (i=1; i<=limit; i++) {
+for (j=1; j<=limit; j++) {ari[i][j]=ari[i-1][j-1]+ari[i-1][j];}}
+_gotoxy(x,y);
+for (i=1; i<=limit; i++) {if (i%2!=0) {x--;} y++; _gotoxy(x,y);
+for (j=1; j<=limit; j++) {if (ari[i][j]==0) {break;} 
+			if (ari[i][j]%38==0) {_textcolor(1);}
+			if (ari[i][j]==ari[i][j+1]) {_textcolor(0); printf("%c%c%c", 219, 219, 8);}
+			printf("%c", 219); _textcolor(6);}}
+printf("%c\n\n", 219); 
+return (0);}
